@@ -1,0 +1,84 @@
+<nav class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      
+      <div class="flex items-center">
+        <a routerLink="/" (click)="closeMenu()" class="text-2xl font-bold text-indigo-600 tracking-tight cursor-pointer">
+          Alissa Works<span class="text-gray-400">.</span>
+        </a>
+      </div>
+
+      <div class="hidden sm:flex sm:items-center sm:space-x-8">
+        
+        <a routerLink="/" routerLinkActive="text-indigo-600 bg-indigo-50" [routerLinkActiveOptions]="{exact: true}" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+        <a routerLink="/products" routerLinkActive="text-indigo-600 bg-indigo-50" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Products</a>
+        <a routerLink="/blog" routerLinkActive="text-indigo-600 bg-indigo-50" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Blogs</a>
+        <a routerLink="/services" routerLinkActive="text-indigo-600 bg-indigo-50" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a>
+        <a routerLink="/about" routerLinkActive="text-indigo-600 bg-indigo-50" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+        <a routerLink="/contact" routerLinkActive="text-indigo-600 bg-indigo-50" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+
+        @if (authService.isLoggedIn()) {
+          <div class="flex items-center gap-4 border-l pl-4 border-gray-200">
+            <a routerLink="/dashboard" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer shadow-md">
+              Dashboard
+            </a>
+            <button (click)="authService.logout()" class="text-gray-500 hover:text-red-600 text-sm font-medium transition-colors">
+              Logout
+            </button>
+          </div>
+        } 
+        @else {
+          <div class="border-l pl-4 border-gray-200">
+            <a routerLink="/login" class="bg-gray-900 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer">
+              Login
+            </a>
+          </div>
+        }
+      </div>
+
+      <div class="flex items-center sm:hidden">
+        <button (click)="toggleMenu()" type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none p-2">
+          @if (!isMenuOpen) {
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          } @else {
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          }
+        </button>
+      </div>
+    </div>
+  </div>
+
+  @if (isMenuOpen) {
+    <div class="sm:hidden bg-white border-t border-gray-100 animate-fade-in-down">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        
+        <a routerLink="/" (click)="closeMenu()" routerLinkActive="bg-indigo-50 text-indigo-600" [routerLinkActiveOptions]="{exact: true}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Home</a>
+        <a routerLink="/products" (click)="closeMenu()" routerLinkActive="bg-indigo-50 text-indigo-600" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Products</a>
+        <a routerLink="/blog" (click)="closeMenu()" routerLinkActive="bg-indigo-50 text-indigo-600" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Blogs</a>
+        <a routerLink="/services" (click)="closeMenu()" routerLinkActive="bg-indigo-50 text-indigo-600" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Services</a>
+        <a routerLink="/about" (click)="closeMenu()" routerLinkActive="bg-indigo-50 text-indigo-600" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">About</a>
+        <a routerLink="/contact" (click)="closeMenu()" routerLinkActive="bg-indigo-50 text-indigo-600" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Contact</a>
+
+        <div class="pt-4 pb-2 border-t border-gray-100 mt-2">
+          @if (authService.isLoggedIn()) {
+            <a routerLink="/dashboard" (click)="closeMenu()" class="block w-full text-center bg-indigo-600 text-white px-4 py-3 rounded-lg text-base font-medium shadow-sm mb-2">
+              Go to Dashboard
+            </a>
+            <button (click)="authService.logout(); closeMenu()" class="block w-full text-center text-red-500 py-2 text-sm font-medium hover:bg-red-50 rounded-lg">
+              Logout
+            </button>
+          } @else {
+            <a routerLink="/login" (click)="closeMenu()" class="block w-full text-center bg-gray-900 text-white px-4 py-3 rounded-lg text-base font-medium hover:bg-gray-800">
+              Login
+            </a>
+          }
+        </div>
+
+      </div>
+    </div>
+  }
+</nav>

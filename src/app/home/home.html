@@ -1,0 +1,194 @@
+<div class="min-h-screen font-sans">
+
+  <div class="relative bg-gray-900 h-[600px]">
+    <div class="absolute inset-0">
+      <img 
+        src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1920&auto=format&fit=crop" 
+        alt="Office Setup" 
+        class="w-full h-full object-cover opacity-60"
+      >
+    </div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center items-center text-center">
+      <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-6">
+        Elevate Your <span class="text-indigo-400">Workspace</span>
+      </h1>
+      <p class="text-xl text-gray-200 max-w-2xl mb-8">
+        Discover premium electronics and furniture designed for modern professionals. 
+        Productivity meets style.
+      </p>
+      <div class="flex gap-4">
+        <a routerLink="/products" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg shadow-indigo-500/30 cursor-pointer">
+          Shop Now
+        </a>
+        <a routerLink="/about" class="bg-white hover:bg-gray-100 text-gray-900 px-8 py-3 rounded-full text-lg font-semibold transition-all cursor-pointer">
+          Learn More
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        
+        <div class="p-6 bg-gray-50 rounded-2xl hover:shadow-lg transition-shadow">
+          <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 18 1 18 1 3"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Free Shipping</h3>
+          <p class="text-gray-500">Free express delivery on all orders over $500 within Germany.</p>
+        </div>
+
+        <div class="p-6 bg-gray-50 rounded-2xl hover:shadow-lg transition-shadow">
+          <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">2-Year Warranty</h3>
+          <p class="text-gray-500">We stand by our quality. Full coverage for peace of mind.</p>
+        </div>
+
+        <div class="p-6 bg-gray-50 rounded-2xl hover:shadow-lg transition-shadow">
+          <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">24/7 Support</h3>
+          <p class="text-gray-500">Our expert team is ready to help you anytime, anywhere.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-end mb-8">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900">Trending Now</h2>
+          <p class="text-gray-500 mt-2">Top picks from our premium collection</p>
+        </div>
+        <a routerLink="/products" class="text-indigo-600 font-semibold hover:text-indigo-700 flex items-center gap-1">
+          View All <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        @for (item of trendingProducts; track item.id) {
+          <div class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+            <div class="relative h-64 overflow-hidden">
+              <img [src]="item.image" [alt]="item.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-gray-900">{{ item.name }}</h3>
+              <div class="flex justify-between items-center mt-4">
+                <span class="text-xl font-bold text-indigo-600">{{ item.price | currency }}</span>
+                <button routerLink="/products" class="text-sm font-medium text-gray-900 underline decoration-2 decoration-indigo-200 hover:decoration-indigo-600 transition-all">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+<div class="py-20 bg-white border-t border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="flex justify-between items-end mb-10">
+      <div>
+        <h2 class="text-3xl font-bold text-gray-900 tracking-tight">Latest Insights</h2>
+        <p class="text-gray-500 mt-2 text-lg">Updates from the world of tech and design.</p>
+      </div>
+      <a routerLink="/blog" class="hidden sm:inline-flex items-center font-semibold text-indigo-600 hover:text-indigo-700 transition-colors">
+        Read the Blog <span class="ml-2">&rarr;</span>
+      </a>
+    </div>
+
+    <div class="flex flex-col gap-8">
+      
+      @for (news of latestNews; track news.id) {
+        <div class="group flex flex-col md:flex-row bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-indigo-100 hover:shadow-xl transition-all duration-300">
+          
+          <div class="md:w-1/3 relative overflow-hidden h-56 md:h-auto">
+            <img 
+              [src]="news.image" 
+              [alt]="news.title" 
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+            >
+            <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-gray-900 shadow-sm">
+              {{ news.category }}
+            </div>
+          </div>
+
+          <div class="md:w-2/3 p-8 flex flex-col justify-center">
+            
+            <div class="flex items-center text-sm text-gray-500 mb-3 space-x-3">
+              <span class="flex items-center">
+                <svg class="w-4 h-4 mr-1 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                {{ news.date }}
+              </span>
+              <span class="w-1 h-1 bg-gray-300 rounded-full"></span>
+              <span class="flex items-center">
+                <svg class="w-4 h-4 mr-1 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                {{ news.readTime }}
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors cursor-pointer">
+              {{ news.title }}
+            </h3>
+
+            <p class="text-gray-600 leading-relaxed mb-6 line-clamp-2">
+              {{ news.description }}
+            </p>
+
+            <div class="mt-auto">
+              <a routerLink="/blog" class="inline-flex items-center text-sm font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors">
+                Continue Reading
+                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      }
+
+    </div>
+
+    <div class="mt-8 text-center sm:hidden">
+      <a routerLink="/blog" class="text-indigo-600 font-semibold hover:text-indigo-700">View All News &rarr;</a>
+    </div>
+
+  </div>
+</div>
+
+
+
+  <div class="bg-indigo-700 py-16 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'3\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'3\'/%3E%3C/g%3E%3C/svg%3E');"></div>
+
+  <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">
+      Ready to upgrade your setup?
+    </h2>
+    <p class="text-indigo-100 text-lg mb-8 max-w-2xl mx-auto">
+      Join thousands of happy developers and designers who trust Alissa Works for their daily workflow.
+    </p>
+    
+    <div class="flex flex-col sm:flex-row justify-center gap-3 max-w-lg mx-auto">
+     <input 
+  type="email" 
+  placeholder="Enter your email" 
+  class="bg-white border border-gray-300 px-6 py-3.5 rounded-lg w-full text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-4 focus:ring-indigo-500/50 shadow-sm"
+>
+      <button class="bg-white text-indigo-700 px-8 py-3.5 rounded-lg font-bold hover:bg-indigo-50 transition-all duration-200 shadow-md hover:shadow-lg whitespace-nowrap">
+        Subscribe Now
+      </button>
+    </div>
+    <p class="text-indigo-200 text-sm mt-4">We care about your data in our privacy policy.</p>
+  </div>
+</div>
+
+</div>
