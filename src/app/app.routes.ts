@@ -11,6 +11,7 @@ import { ContactComponent } from './pages/contact/contact';
 import { AddProductComponent } from './pages/dashboard/add-product/add-product';
 import { DashboardComponent } from './pages/dashboard/dashboard';
 import { OverviewComponent } from './pages/dashboard/overview/overview';
+import { ProductListComponents } from './pages/dashboard/products/products';
 import { About } from './pages/home/about/about';
 import { LoginComponent } from './pages/login/login';
 import { ProductsComponent } from './pages/products/products';
@@ -32,6 +33,7 @@ const routes: Routes = [
     children: [
       { path: '', component: OverviewComponent }, // ২. ডিফল্ট (মেইন ড্যাশবোর্ড কন্টেন্ট)
      { path: 'add-product', component: AddProductComponent },
+      { path:'products-list', component: ProductListComponents},
     ]
    },
   

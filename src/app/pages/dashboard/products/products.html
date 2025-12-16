@@ -1,1 +1,69 @@
-<p>products works!</p>
+<div class="max-w-6xl mx-auto">
+  
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold text-gray-900">Products List</h1>
+    <a routerLink="/dashboard/add-product" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-medium">
+      + Add New Product
+    </a>
+  </div>
+
+  <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+    <table class="w-full text-left border-collapse">
+      <thead class="bg-gray-50 text-gray-500 text-xs uppercase font-semibold">
+        <tr>
+          <th class="px-6 py-4">Image</th>
+          <th class="px-6 py-4">Name</th>
+          <th class="px-6 py-4">Category</th>
+          <th class="px-6 py-4">Price</th>
+          <th class="px-6 py-4">Stock</th>
+          <th class="px-6 py-4">Status</th>
+          <th class="px-6 py-4 text-right">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-100">
+        
+        @for (item of productService.products(); track item.id) {
+          <tr class="hover:bg-gray-50 transition-colors">
+            <td class="px-6 py-4">
+              <img [src]="item.image || 'https://via.placeholder.com/40'" class="w-10 h-10 rounded-lg object-cover border border-gray-200">
+            </td>
+            
+            <td class="px-6 py-4">
+              <p class="text-sm font-bold text-gray-900">{{ item.name }}</p>
+            </td>
+
+            <td class="px-6 py-4 text-sm text-gray-600">{{ item.category }}</td>
+            <td class="px-6 py-4 text-sm font-bold text-gray-900">${{ item.price }}</td>
+            <td class="px-6 py-4 text-sm text-gray-600">{{ item.stock }} units</td>
+            
+            <td class="px-6 py-4">
+              <span [class]="
+                'px-2 py-1 text-xs rounded-full font-semibold ' + 
+                (item.status === 'Active' ? 'bg-green-100 text-green-700' : 
+                 item.status === 'Draft' ? 'bg-gray-100 text-gray-700' : 
+                 'bg-red-100 text-red-700')
+              ">
+                {{ item.status }}
+              </span>
+            </td>
+
+            <td class="px-6 py-4 text-right space-x-2">
+              <button class="text-indigo-600 hover:text-indigo-900 font-medium text-sm">Edit</button>
+              <button class="text-red-500 hover:text-red-700 font-medium text-sm">Delete</button>
+            </td>
+          </tr>
+        }
+
+        @if (productService.products().length === 0) {
+          <tr>
+            <td colspan="7" class="text-center py-8 text-gray-500">
+              No products found. Add one to get started.
+            </td>
+          </tr>
+        }
+
+      </tbody>
+    </table>
+  </div>
+
+</div>

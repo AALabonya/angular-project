@@ -24,7 +24,7 @@ export class SidebarComponent {
       icon: 'shopping-bag', // Parent Menu
       isOpen: false,        // Dropdown status
       children: [           // Sub-menus
-        { title: 'Products List', route: '/dashboard//products' },
+        { title: 'Products List', route: '/dashboard/products-list' },
       { title: 'Add Product', route: '/dashboard/add-product' },
         { title: 'Categories', route: '/dashboard//products/categories' },
         { title: 'Orders', route: '/dashboard//orders' }
