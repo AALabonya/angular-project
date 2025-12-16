@@ -20,14 +20,14 @@ export class SidebarComponent {
       isOpen: false
     },
     {
-      title: 'E-commerce',
+      title: 'Products Management',
       icon: 'shopping-bag', // Parent Menu
       isOpen: false,        // Dropdown status
       children: [           // Sub-menus
-        { title: 'Products List', route: '/products' },
-        { title: 'Add Product', route: '/products/add' },
-        { title: 'Categories', route: '/products/categories' },
-        { title: 'Orders', route: '/orders' }
+        { title: 'Products List', route: '/dashboard//products' },
+      { title: 'Add Product', route: '/dashboard/add-product' },
+        { title: 'Categories', route: '/dashboard//products/categories' },
+        { title: 'Orders', route: '/dashboard//orders' }
       ]
     },
     {
