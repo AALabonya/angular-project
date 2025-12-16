@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home';
 import { BlogComponent } from './pages/blog/blog';
 import { ContactComponent } from './pages/contact/contact';
+import { DashboardComponent } from './pages/dashboard/dashboard';
 import { About } from './pages/home/about/about';
 import { LoginComponent } from './pages/login/login';
 import { ProductsComponent } from './pages/products/products';
@@ -25,6 +26,7 @@ const routes: Routes = [
  { path: 'about', component: About},
  { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'dashboard', component: DashboardComponent },
   // fallback (optional but recommended)
   { path: '**', redirectTo: '' }
 ];
