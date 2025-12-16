@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home';
 import { BlogComponent } from './pages/blog/blog';
 import { ContactComponent } from './pages/contact/contact';
 import { DashboardComponent } from './pages/dashboard/dashboard';
+import { OverviewComponent } from './pages/dashboard/overview/overview';
 import { About } from './pages/home/about/about';
 import { LoginComponent } from './pages/login/login';
 import { ProductsComponent } from './pages/products/products';
@@ -26,7 +27,13 @@ const routes: Routes = [
  { path: 'about', component: About},
  { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent,
+    children: [
+      { path: '', component: OverviewComponent }, // ২. ডিফল্ট (মেইন ড্যাশবোর্ড কন্টেন্ট)
+     
+    ]
+   },
+  
   // fallback (optional but recommended)
   { path: '**', redirectTo: '' }
 ];
